@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
+# 导入模块
+import os
+import sys
+import filetype
+
+# 解压各类型压缩文件
+def decompress_zip(FILE_NAME_PATH):
+    COMMAND = "7z x " + FILE_NAME_PATH
+    os.system(COMMAND)
+def decompress_tar(FILE_NAME_PATH):
+    COMMAND = "tar -xvf " + FILE_NAME_PATH
+    os.system(COMMAND)
+def decompress_tar_gz(FILE_NAME_PATH):
+    COMMAND = "tar -xzvf " + FILE_NAME_PATH
+    os.system(COMMAND)
+def decompress_tar_tgz(FILE_NAME_PATH):
+    COMMAND = "tar -xzvf " + FILE_NAME_PATH
+    os.system(COMMAND)
+def decompress_tar_bz(FILE_NAME_PATH):
+    COMMAND = "tar -xjvf " + FILE_NAME_PATH
+    os.system(COMMAND)
+def decompress_tar_bz2(FILE_NAME_PATH):
+    COMMAND = "tar -xjvf " + FILE_NAME_PATH
+    os.system(COMMAND)
+def decompress_tar_xz(FILE_NAME_PATH):
+    COMMAND = "tar -xvf " + FILE_NAME_PATH
+    os.system(COMMAND)
+def decompress_tar_z(FILE_NAME_PATH):
+    COMMAND = "tar -xZvf " + FILE_NAME_PATH
+    os.system(COMMAND)
+
+
+# 参数判断
+def judgment_parameters():
+    # 获取文件路径和数据
+    GET_FILE_PATH = sys.argv[1]
+    GET_FILE = filetype.guess(GET_FILE_PATH)
+
+    # 判断文件类型
+    if GET_FILE is None:
+        print('=> 无法猜测文件类型。')
+        return
+    else:
+        if GET_FILE.extension == "zip":
+            decompress_zip(GET_FILE_PATH)
+        elif GET_FILE.extension == "tar":
+            decompress_tar(GET_FILE_PATH)
+        elif GET_FILE.extension == "gz":
+            decompress_tar_gz(GET_FILE_PATH)
+        elif GET_FILE.extension == "tgz":
+            decompress_tar_tgz(GET_FILE_PATH)
+        elif GET_FILE.extension == "bz":
+            decompress_tar_bz(GET_FILE_PATH)
+        elif GET_FILE.extension == "bz2":
+            decompress_tar_bz2(GET_FILE_PATH)
+        elif GET_FILE.extension == "xz":
+            decompress_tar_xz(GET_FILE_PATH)
+        elif GET_FILE.extension == "z":
+            decompress_tar_z(GET_FILE_PATH)
+        else:
+            print("=> 暂不支持解压此格式的文件。")
+
+
+# 程序入口
+if __name__ == '__main__':
+    judgment_parameters()
