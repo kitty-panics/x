@@ -4,7 +4,11 @@
 
 ## 使用
 
-将 `x` 放进 **PATH** 中。
+1. 安装 **filetype** 包
+    + `pip install filetype`
+2. 将 `x` 放进 **PATH** 中。
+
+解压文件只需执行下面的命令即可。
 
 ```Shell
 x 文件名
@@ -13,7 +17,7 @@ x 文件名
 ## 支持格式
 
 + [X] zip
-+ [ ] rar
++ [X] rar
 + [X] 7z
 + [X] tar
 + [X] gz
@@ -24,6 +28,7 @@ x 文件名
 + [X] z
 + [ ] lz
 + [ ] deb
++ [ ] exe
 
 ## 许可证
 
